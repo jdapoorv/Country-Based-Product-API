@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class DiscountConcurrencyTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class DiscountConcurrencyTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; DiscountConcurrencyTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.708s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">same discount applied concurrently is idempotent()</td>
+<td class="success">0.708s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre id="class-stdout">22:01:07.956 [DefaultDispatcher-worker-6 @call-context#19] INFO ktor.test -- No ktor.deployment.watch patterns specified, automatic reload is not active.
+22:01:08.010 [DefaultDispatcher-worker-6 @call-context#19] INFO ktor.test -- Application started in 0.059 seconds.
+22:01:08.012 [DefaultDispatcher-worker-12 @coroutine#23] INFO ktor.test -- Responding at http://localhost:80
+22:01:08.012 [DefaultDispatcher-worker-12 @coroutine#23] INFO ktor.test -- Responding at https://localhost:443
+22:01:08.110 [DefaultDispatcher-worker-10 @request#21] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.124 [DefaultDispatcher-worker-10 @request#21] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.140 [DefaultDispatcher-worker-2 @request#15] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.145 [DefaultDispatcher-worker-2 @request#15] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.153 [DefaultDispatcher-worker-3 @request#14] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.155 [DefaultDispatcher-worker-3 @request#14] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.159 [DefaultDispatcher-worker-7 @request#18] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.163 [DefaultDispatcher-worker-7 @request#18] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.167 [DefaultDispatcher-worker-4 @request#17] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.169 [DefaultDispatcher-worker-4 @request#17] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.172 [DefaultDispatcher-worker-9 @request#22] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.173 [DefaultDispatcher-worker-9 @request#22] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.175 [DefaultDispatcher-worker-8 @request#20] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.177 [DefaultDispatcher-worker-8 @request#20] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.181 [DefaultDispatcher-worker-1 @request#12] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.183 [DefaultDispatcher-worker-1 @request#12] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.184 [DefaultDispatcher-worker-6 @request#19] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.186 [DefaultDispatcher-worker-6 @request#19] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.186 [DefaultDispatcher-worker-5 @request#16] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.188 [DefaultDispatcher-worker-5 @request#16] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.206 [DefaultDispatcher-worker-2 @request#55] DEBUG Exposed -- SELECT products.id, products.&quot;name&quot;, products.base_price, products.country FROM products WHERE products.country = 'Sweden'
+22:01:08.207 [DefaultDispatcher-worker-2 @request#55] DEBUG Exposed -- SELECT product_discounts.product_id, product_discounts.discount_id, product_discounts.percent FROM product_discounts WHERE product_discounts.product_id = 'p1'
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="class-stdout">Copy</button>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.2.1</a> at 16-Jan-2026, 10:01:08 pm</p>
+</div>
+</div>
+</body>
+</html>

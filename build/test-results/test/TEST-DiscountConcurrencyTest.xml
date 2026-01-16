@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DiscountConcurrencyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-16T16:31:07.523Z" hostname="Jais-MacBook-Air.local" time="0.708">
+  <properties/>
+  <testcase name="same discount applied concurrently is idempotent()" classname="DiscountConcurrencyTest" time="0.708"/>
+  <system-out><![CDATA[22:01:07.956 [DefaultDispatcher-worker-6 @call-context#19] INFO ktor.test -- No ktor.deployment.watch patterns specified, automatic reload is not active.
+22:01:08.010 [DefaultDispatcher-worker-6 @call-context#19] INFO ktor.test -- Application started in 0.059 seconds.
+22:01:08.012 [DefaultDispatcher-worker-12 @coroutine#23] INFO ktor.test -- Responding at http://localhost:80
+22:01:08.012 [DefaultDispatcher-worker-12 @coroutine#23] INFO ktor.test -- Responding at https://localhost:443
+22:01:08.110 [DefaultDispatcher-worker-10 @request#21] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.124 [DefaultDispatcher-worker-10 @request#21] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.140 [DefaultDispatcher-worker-2 @request#15] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.145 [DefaultDispatcher-worker-2 @request#15] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.153 [DefaultDispatcher-worker-3 @request#14] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.155 [DefaultDispatcher-worker-3 @request#14] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.159 [DefaultDispatcher-worker-7 @request#18] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.163 [DefaultDispatcher-worker-7 @request#18] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.167 [DefaultDispatcher-worker-4 @request#17] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.169 [DefaultDispatcher-worker-4 @request#17] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.172 [DefaultDispatcher-worker-9 @request#22] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.173 [DefaultDispatcher-worker-9 @request#22] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.175 [DefaultDispatcher-worker-8 @request#20] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.177 [DefaultDispatcher-worker-8 @request#20] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.181 [DefaultDispatcher-worker-1 @request#12] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.183 [DefaultDispatcher-worker-1 @request#12] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.184 [DefaultDispatcher-worker-6 @request#19] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.186 [DefaultDispatcher-worker-6 @request#19] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.186 [DefaultDispatcher-worker-5 @request#16] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.id = 'p1' FOR UPDATE
+22:01:08.188 [DefaultDispatcher-worker-5 @request#16] DEBUG Exposed -- INSERT INTO product_discounts (discount_id, percent, product_id) VALUES ('DISC10', 10.0, 'p1') ON CONFLICT DO NOTHING
+22:01:08.206 [DefaultDispatcher-worker-2 @request#55] DEBUG Exposed -- SELECT products.id, products."name", products.base_price, products.country FROM products WHERE products.country = 'Sweden'
+22:01:08.207 [DefaultDispatcher-worker-2 @request#55] DEBUG Exposed -- SELECT product_discounts.product_id, product_discounts.discount_id, product_discounts.percent FROM product_discounts WHERE product_discounts.product_id = 'p1'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
