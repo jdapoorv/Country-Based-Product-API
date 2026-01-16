@@ -93,5 +93,3 @@ Response:
 ### Running Tests:
 
 ./gradlew clean test
-
-```bash
