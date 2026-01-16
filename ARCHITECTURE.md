@@ -87,6 +87,8 @@ sequenceDiagram
     API ->> API: Calculate final price (VAT + discounts)
     API -->> Client: 200 OK + product list 
 ```
+<img width="677" height="379" alt="Screenshot 2026-01-17 at 1 13 09 AM" src="https://github.com/user-attachments/assets/35ce619c-0322-49b5-8d15-34f6ab4a46c0" />
+
 ### PUT /products/{id}/discount
 
 ```mermaid
@@ -101,6 +103,8 @@ sequenceDiagram
         API -->> Client: 200 OK (idempotent)
     end
 ```
+
+<img width="680" height="484" alt="Screenshot 2026-01-17 at 1 19 44 AM" src="https://github.com/user-attachments/assets/d5d6610b-bb69-42e9-a62a-b3bc601a0b76" />
 
 ### Testing Strategy
 
